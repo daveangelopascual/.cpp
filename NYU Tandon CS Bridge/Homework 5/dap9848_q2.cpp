@@ -23,12 +23,14 @@ int main () {
         }       
         else if (userGuess < randomNum && i != 5) {
             cout << "Wrong! My number is bigger.\n\n";
-            rangeLower = userGuess + 1;
+            if (rangeLower < userGuess)
+                rangeLower = userGuess + 1;
             attempts--;
         }
         else if (userGuess > randomNum && i != 5) {
             cout << "Wrong! My number is smaller.\n\n";
-            rangeUpper = userGuess - 1;
+            if (rangeUpper > userGuess)
+                rangeUpper = userGuess - 1;
             attempts--;
         }
         else
