@@ -1,20 +1,23 @@
 #include <iostream> 
 using namespace std;
 
+//Constants
+const int FLOOR_ROUND = 1;
+const int CEILING_ROUND = 2;
+const int ROUND = 3;
 
 int main() {
 
-    int wholeNumber, decimal, option, roundedNumber;
-    char point;
+    double input, decimal;
+    int option, wholeNumber, roundedNumber;
 
-    //Constants
-    const int FLOOR_ROUND = 1;
-    const int CEILING_ROUND = 2;
-    const int ROUND = 3;
 
     //User Specified Inputs
     cout << "Please enter a Real number: \n";
-    cin >> wholeNumber >> point >> decimal;
+    cin >> input;
+
+    wholeNumber = input / 1;
+    decimal = input - wholeNumber;
 
     //User selects Rounding method.
     cout << "Choose your rounding method:\n";
@@ -63,18 +66,16 @@ int main() {
 
         //Checks if number is positive.
         else if (wholeNumber > 0) {
-            if ((((float)decimal) / 100) >= .50)
+            if (decimal >= .50)
                 roundedNumber = wholeNumber + 1;
-
             else
                 roundedNumber = wholeNumber;
         }
 
         //Otherwise is negative.
         else {
-            if ((((float)decimal) / 100) <= .50)
+            if (decimal <= .50)
                 roundedNumber = wholeNumber - 1;
-
             else
                 roundedNumber = wholeNumber;
         }
@@ -82,6 +83,16 @@ int main() {
         cout << roundedNumber << endl;
         break;
 
+        
+    default:
+        // When options 1, 2, or 3 are not chosen.
+        cout << "Please try a valid option!\n";
+        break;
+    }
+    return 0;
+}
+        cout << roundedNumber << endl;
+        break;
         
     default:
         // When options 1, 2, or 3 are not chosen.
